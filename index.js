@@ -1,11 +1,11 @@
-let express = require('express'),
-    mongoose = require('mongoose'),
+let express = require('express');
+let mongoose = require('mongoose'),
     cors = require('cors'),
     bodyParser = require('body-parser'),
     dbConfig = require('./database/db');
 
 
-const api = require('./routes/user.routes');
+const api = require('./routes/user');
 
 // MongoDB Configuration
 mongoose.Promise = global.Promise;
