@@ -69,4 +69,26 @@ router.get("/", (req, res, next) => {
     });
 });
 
+// @route GET api/user-profile/:id
+// @description Get single user image by id
+// @access Public
+router.get('/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json({ noImgFound: 'Not user found' }));
+});
+
+// @route GET api/user-profile/:id
+// @description Update task
+// @access Public
+router.put('/:id', (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body)
+    .then(user => res.json({ msg: 'Updated successfully' }))
+    .catch(err =>
+      res.status(400).json({ error: 'Unable to update the Database' }),
+    );
+});
+
+
+
 module.exports = router;
